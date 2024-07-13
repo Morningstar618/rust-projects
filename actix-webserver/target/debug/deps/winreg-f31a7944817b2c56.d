@@ -1,0 +1,11 @@
+D:\PERSONAL\git\rust-projects\actix-webserver\target\debug\deps\libwinreg-f31a7944817b2c56.rmeta: C:\Users\ayush.joshi\.cargo\registry\src\index.crates.io-6f17d22bba15001f\winreg-0.52.0\src\lib.rs C:\Users\ayush.joshi\.cargo\registry\src\index.crates.io-6f17d22bba15001f\winreg-0.52.0\src\common.rs C:\Users\ayush.joshi\.cargo\registry\src\index.crates.io-6f17d22bba15001f\winreg-0.52.0\src\enums.rs C:\Users\ayush.joshi\.cargo\registry\src\index.crates.io-6f17d22bba15001f\winreg-0.52.0\src\reg_key.rs C:\Users\ayush.joshi\.cargo\registry\src\index.crates.io-6f17d22bba15001f\winreg-0.52.0\src\reg_key_metadata.rs C:\Users\ayush.joshi\.cargo\registry\src\index.crates.io-6f17d22bba15001f\winreg-0.52.0\src\reg_value.rs C:\Users\ayush.joshi\.cargo\registry\src\index.crates.io-6f17d22bba15001f\winreg-0.52.0\src\types.rs
+
+D:\PERSONAL\git\rust-projects\actix-webserver\target\debug\deps\winreg-f31a7944817b2c56.d: C:\Users\ayush.joshi\.cargo\registry\src\index.crates.io-6f17d22bba15001f\winreg-0.52.0\src\lib.rs C:\Users\ayush.joshi\.cargo\registry\src\index.crates.io-6f17d22bba15001f\winreg-0.52.0\src\common.rs C:\Users\ayush.joshi\.cargo\registry\src\index.crates.io-6f17d22bba15001f\winreg-0.52.0\src\enums.rs C:\Users\ayush.joshi\.cargo\registry\src\index.crates.io-6f17d22bba15001f\winreg-0.52.0\src\reg_key.rs C:\Users\ayush.joshi\.cargo\registry\src\index.crates.io-6f17d22bba15001f\winreg-0.52.0\src\reg_key_metadata.rs C:\Users\ayush.joshi\.cargo\registry\src\index.crates.io-6f17d22bba15001f\winreg-0.52.0\src\reg_value.rs C:\Users\ayush.joshi\.cargo\registry\src\index.crates.io-6f17d22bba15001f\winreg-0.52.0\src\types.rs
+
+C:\Users\ayush.joshi\.cargo\registry\src\index.crates.io-6f17d22bba15001f\winreg-0.52.0\src\lib.rs:
+C:\Users\ayush.joshi\.cargo\registry\src\index.crates.io-6f17d22bba15001f\winreg-0.52.0\src\common.rs:
+C:\Users\ayush.joshi\.cargo\registry\src\index.crates.io-6f17d22bba15001f\winreg-0.52.0\src\enums.rs:
+C:\Users\ayush.joshi\.cargo\registry\src\index.crates.io-6f17d22bba15001f\winreg-0.52.0\src\reg_key.rs:
+C:\Users\ayush.joshi\.cargo\registry\src\index.crates.io-6f17d22bba15001f\winreg-0.52.0\src\reg_key_metadata.rs:
+C:\Users\ayush.joshi\.cargo\registry\src\index.crates.io-6f17d22bba15001f\winreg-0.52.0\src\reg_value.rs:
+C:\Users\ayush.joshi\.cargo\registry\src\index.crates.io-6f17d22bba15001f\winreg-0.52.0\src\types.rs:
