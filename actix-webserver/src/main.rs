@@ -65,7 +65,7 @@ impl Database {
         self.users.insert(user.id, user);
     }
 
-    fn get_user_by_name(&mut self, username: &str) -> Option<&User> {
+    fn get_user_by_name(&self, username: &str) -> Option<&User> {
         self.users.values().find(|u| u.name == username)
     }
 
@@ -88,6 +88,7 @@ struct AppState {
     db: Mutex<Database>,
 }
 
+//TASK Functions
 async fn create_task(app_state: web::Data<AppState>, task: web::Json<Task>) -> impl Responder {
     let mut db = app_state.db.lock().unwrap();
     db.insert(task.into_inner());
@@ -96,10 +97,48 @@ async fn create_task(app_state: web::Data<AppState>, task: web::Json<Task>) -> i
 }
 
 async fn read_task(app_state: web::Data<AppState>, id: web::Path<u64>) -> impl Responder {
-    let mut db = app_state.db.lock().unwrap();
+    let db = app_state.db.lock().unwrap();
     match db.get(&id.into_inner()) {
         Some(task) => HttpResponse::Ok().json(task),
         None => HttpResponse::NotFound().finish(),
+    }
+}
+
+async fn read_all_tasks(app_state: web::Data<AppState>) -> impl Responder {
+    let db = app_state.db.lock().unwrap();
+    let tasks = db.get_all();
+    HttpResponse::Ok().json(tasks)
+}
+
+async fn update_task(app_state: web::Data<AppState>, task: web::Json<Task>) -> impl Responder {
+    let mut db = app_state.db.lock().unwrap();
+    db.insert(task.into_inner());
+    let _ = db.save_to_file();
+    HttpResponse::Ok().finish()
+}
+
+async fn delete_task(app_state: web::Data<AppState>, id: web::Path<u64>) -> impl Responder {
+    let mut db = app_state.db.lock().unwrap();
+    db.delete(&id.into_inner());
+    db.save_to_file().unwrap();
+    HttpResponse::Ok().finish()
+}
+
+//USER Functions
+async fn register(app_state: web::Data<AppState>, user: web::Json<User>) -> impl Responder {
+    let mut db = app_state.db.lock().unwrap();
+    db.insert_user(user.into_inner());
+    let _ = db.save_to_file();
+    HttpResponse::Ok().finish()
+}
+
+async fn login(app_state: web::Data<AppState>, user: web::Json<User>) -> impl Responder {
+    let db = app_state.db.lock().unwrap();
+    match db.get_user_by_name(&user.name) {
+        Some(stored_user) if stored_user.password == user.password => {
+            HttpResponse::Ok().body("Logged in!")
+        }
+        _ => HttpResponse::BadRequest().body("Invalid username or password"),
     }
 }
 
@@ -127,7 +166,12 @@ async fn main() -> std::io::Result<()> {
             )
             .app_data(data.clone())
             .route("/task", web::post().to(create_task))
+            .route("/task", web::get().to(read_all_tasks))
+            .route("/task", web::put().to(update_task))
             .route("/task/{id}", web::get().to(read_task))
+            .route("/task/{id}", web::delete().to(delete_task))
+            .route("/register", web::post().to(register))
+            .route("/login", web::post().to(login))
     })
     .bind("127.0.0.1:8080")?
     .run()
